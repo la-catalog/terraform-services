@@ -33,7 +33,7 @@ variable "github_token" {
 }
 
 provider "github" {
-  token = var.github_token
-  owner = "la-catalog"
+  token         = var.github_token
+  owner         = "la-catalog"
   read_delay_ms = 1000
 }
