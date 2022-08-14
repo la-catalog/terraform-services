@@ -12,6 +12,8 @@ terraform {
   }
 }
 
+###### Notebook access ######
+
 variable "machine_ip" {
   type      = string
   sensitive = true
@@ -26,6 +28,8 @@ provider "docker" {
   host     = "ssh://${var.machine_user}@${var.machine_ip}:22"
   ssh_opts = ["-o", "StrictHostKeyChecking=no", "-o", "UserKnownHostsFile=/dev/null"]
 }
+
+###### Github access ######
 
 variable "github_token" {
   type      = string
