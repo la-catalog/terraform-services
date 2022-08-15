@@ -8,7 +8,7 @@ resource "docker_image" "meili" {
 }
 
 resource "docker_container" "meili" {
-  image = docker_image.meili.latest
+  image = docker_image.meili.id
   name  = "meili"
 
   ports {
