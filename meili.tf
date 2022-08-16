@@ -4,11 +4,11 @@ variable "meili_pass" {
 }
 
 resource "docker_image" "meili" {
-  name = "getmeili/meilisearch"
+  name = "getmeili/meilisearch:v0.28.1"
 }
 
 resource "docker_container" "meili" {
-  image = docker_image.meili.id
+  image = docker_image.meili.repo_digest
   name  = "meili"
 
   ports {

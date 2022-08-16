@@ -9,11 +9,11 @@ variable "rabbit_pass" {
 }
 
 resource "docker_image" "rabbit" {
-  name = "rabbitmq:3-management"
+  name = "rabbitmq:3.9.22-management"
 }
 
 resource "docker_container" "rabbit" {
-  image = docker_image.rabbit.id
+  image = docker_image.rabbit.repo_digest
   name  = "rabbit"
 
   ports {

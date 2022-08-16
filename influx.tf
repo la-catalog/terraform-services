@@ -9,11 +9,11 @@ variable "influx_pass" {
 }
 
 resource "docker_image" "influx" {
-  name = "influxdb"
+  name = "influxdb:2.3.0"
 }
 
 resource "docker_container" "influx" {
-  image = docker_image.influx.id
+  image = docker_image.influx.repo_digest
   name  = "influx"
 
   ports {
