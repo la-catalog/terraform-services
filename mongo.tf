@@ -1,9 +1,9 @@
-variable "mongo_user" {
+variable "MONGO_USER" {
   type      = string
   sensitive = true
 }
 
-variable "mongo_pass" {
+variable "MONGO_PASS" {
   type      = string
   sensitive = true
 }
@@ -22,7 +22,7 @@ resource "docker_container" "mongo" {
   }
 
   env = [
-    "MONGO_INITDB_ROOT_USERNAME=${var.mongo_user}",
-    "MONGO_INITDB_ROOT_PASSWORD=${var.mongo_pass}",
+    "MONGO_INITDB_ROOT_USERNAME=${var.MONGO_USER}",
+    "MONGO_INITDB_ROOT_PASSWORD=${var.MONGO_PASS}",
   ]
 }

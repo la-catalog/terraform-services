@@ -7,17 +7,17 @@ terraform {
   }
 }
 
-variable "machine_ip" {
+variable "MACHINE_IP" {
   type      = string
   sensitive = true
 }
 
-variable "machine_user" {
+variable "MACHINE_USER" {
   type      = string
   sensitive = true
 }
 
 provider "docker" {
-  host     = "ssh://${var.machine_user}@${var.machine_ip}:22"
+  host     = "ssh://${var.MACHINE_USER}@${var.MACHINE_IP}:22"
   ssh_opts = ["-o", "StrictHostKeyChecking=no", "-o", "UserKnownHostsFile=/dev/null"]
 }
