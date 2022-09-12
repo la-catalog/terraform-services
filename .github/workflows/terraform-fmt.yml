@@ -1,0 +1,22 @@
+name: Python test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dflook/terraform-fmt@v1
+      - run: |
+          if [ "$(git status --porcelain)" != "" ]
+          then
+            git config user.name actions
+            git config user.email actions@github.com
+            git commit -a -m "Workflow fix";
+            git push;
+          fi
