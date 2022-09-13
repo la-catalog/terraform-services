@@ -1,9 +1,9 @@
-variable "INFLUX_USER" {
+variable "influx_user" {
   type      = string
   sensitive = true
 }
 
-variable "INFLUX_PASS" {
+variable "influx_pass" {
   type      = string
   sensitive = true
 }
@@ -22,8 +22,8 @@ resource "docker_container" "influx" {
   }
 
   env = [
-    "DOCKER_INFLUXDB_INIT_USERNAME=${var.INFLUX_USER}",
-    "DOCKER_INFLUXDB_INIT_PASSWORD=${var.INFLUX_PASS}",
+    "DOCKER_INFLUXDB_INIT_USERNAME=${var.influx_user}",
+    "DOCKER_INFLUXDB_INIT_PASSWORD=${var.influx_pass}",
     "DOCKER_INFLUXDB_INIT_ORG=la-catalog",
     "DOCKER_INFLUXDB_INIT_BUCKET=la-catalog",
   ]

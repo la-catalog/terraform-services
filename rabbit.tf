@@ -1,9 +1,9 @@
-variable "RABBIT_USER" {
+variable "rabbit_user" {
   type      = string
   sensitive = true
 }
 
-variable "RABBIT_PASS" {
+variable "rabbit_pass" {
   type      = string
   sensitive = true
 }
@@ -27,8 +27,8 @@ resource "docker_container" "rabbit" {
   }
 
   env = [
-    "RABBITMQ_DEFAULT_USER=${var.RABBIT_USER}",
-    "RABBITMQ_DEFAULT_PASS=${var.RABBIT_PASS}",
+    "RABBITMQ_DEFAULT_USER=${var.rabbit_user}",
+    "RABBITMQ_DEFAULT_PASS=${var.rabbit_pass}",
     "RABBITMQ_DEFAULT_VHOST=/",
   ]
 }
