@@ -1,0 +1,14 @@
+name: Apply terraform changes
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dflook/terraform-apply@v1
+        env:
+          gh_token: ${{ secrets.gh_token }}
+          
