@@ -1,7 +1,8 @@
 name: Apply terraform changes
 
 on:
-  workflow_dispatch:
+  pull_request:
+    branches: [main]
 
 jobs:
   apply:
@@ -9,6 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: dflook/terraform-apply@v1
-        env:
-          gh_token: ${{ secrets.gh_token }}
-          
+        with:
+          variables: |
+            github_token = "${{ secrets.github_token }}"
