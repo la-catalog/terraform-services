@@ -28,6 +28,7 @@ jobs:
             gh_token = "${{ secrets.gh_token }}"
         if: ${{ github.event_name == 'workflow_dispatch' }}
       
+      # Pull, add updated files, commit and push
       - uses: EndBug/add-and-commit@v9
         with:
           message: Workflow fix
