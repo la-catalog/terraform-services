@@ -3,13 +3,25 @@ name: Apply terraform changes
 on:
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   apply:
     runs-on: self-hosted
+    env:
+      GITHUB_TOKEN: ${{ secrets.gh_token }}
     steps:
       - uses: actions/checkout@v3
+      - run: echo "${{ github.event_name == 'pull_request' }}"
+      - run: echo "${{ github.event_name == 'workflow_dispatch' }}"
       - uses: dflook/terraform-apply@v1
         with:
           variables: |
-            github_token = "${{ secrets.github_token }}"
+            gh_token = "${{ secrets.gh_token }}"
+        if: ${{ github.event_name == 'pull_request' }}
+      - uses: dflook/terraform-apply@v1
+        with:
+          auto_approve: true
+          variables: |
+            gh_token = "${{ secrets.gh_token }}"
+        if: ${{ github.event_name == 'workflow_dispatch' }}
