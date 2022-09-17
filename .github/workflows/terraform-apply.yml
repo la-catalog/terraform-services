@@ -15,7 +15,7 @@ jobs:
       - uses: dflook/terraform-apply@v1
         with:
           variables: |
-            github_token = "${{ secrets.github_token }}"
+            gh_token = "${{ secrets.gh_token }}"
         if: ${{ github.event_name == 'pull_request' }}
       
       # On workflow dispatch
@@ -23,7 +23,7 @@ jobs:
         with:
           auto_approve: true
           variables: |
-            github_token = "${{ secrets.github_token }}"
+            gh_token = "${{ secrets.gh_token }}"
         if: ${{ github.event_name == 'workflow_dispatch' }}
       
       # Pull, add updated files, commit and push
