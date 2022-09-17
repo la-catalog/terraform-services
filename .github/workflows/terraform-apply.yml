@@ -33,3 +33,4 @@ jobs:
           message: Workflow fix
           committer_name: actions
           committer_email: actions@github.com
+          pull: '--ff'
