@@ -12,16 +12,24 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.gh_token }}
     steps:
       - uses: actions/checkout@v3
-      - run: echo "${{ github.event_name == 'pull_request' }}"
-      - run: echo "${{ github.event_name == 'workflow_dispatch' }}"
+
+      # On pull request
       - uses: dflook/terraform-apply@v1
         with:
           variables: |
             gh_token = "${{ secrets.gh_token }}"
         if: ${{ github.event_name == 'pull_request' }}
+      
+      # On workflow dispatch
       - uses: dflook/terraform-apply@v1
         with:
           auto_approve: true
           variables: |
             gh_token = "${{ secrets.gh_token }}"
         if: ${{ github.event_name == 'workflow_dispatch' }}
+      
+      - uses: EndBug/add-and-commit@v9
+        with:
+          message: Workflow fix
+          committer_name: actions
+          committer_email: actions@github.com
