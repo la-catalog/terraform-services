@@ -31,6 +31,7 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
           message: Workflow fix
+          add: '--update'
           committer_name: actions
           committer_email: actions@github.com
           pull: '--ff'
