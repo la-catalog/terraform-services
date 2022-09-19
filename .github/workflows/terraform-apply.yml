@@ -2,31 +2,19 @@ name: Apply terraform changes
 
 on:
   workflow_dispatch:
-  pull_request:
-    branches: [main]
 
 jobs:
   apply:
     runs-on: self-hosted
+    env:
+      GITHUB_TOKEN: ${{ secrets.gh_token }}
     steps:
       - uses: actions/checkout@v3
-
-      # On pull request
-      - uses: dflook/terraform-apply@v1
-        with:
-          variables: |
-            gh_token = "${{ secrets.gh_token }}"
-        if: ${{ github.event_name == 'pull_request' }}
-      
-      # On workflow dispatch
       - uses: dflook/terraform-apply@v1
         with:
           auto_approve: true
           variables: |
             gh_token = "${{ secrets.gh_token }}"
-        if: ${{ github.event_name == 'workflow_dispatch' }}
-      
-      # Pull, add updated files, commit and push
       - uses: EndBug/add-and-commit@v9
         with:
           message: Workflow fix
