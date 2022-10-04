@@ -13,7 +13,7 @@ resource "docker_image" "influx" {
 }
 
 resource "docker_container" "influx" {
-  image = docker_image.influx.repo_digest
+  image = docker_image.influx.latest
   name  = "influx"
 
   ports {

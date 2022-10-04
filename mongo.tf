@@ -13,7 +13,7 @@ resource "docker_image" "mongo" {
 }
 
 resource "docker_container" "mongo" {
-  image = docker_image.mongo.repo_digest
+  image = docker_image.mongo.latest
   name  = "mongo"
 
   ports {

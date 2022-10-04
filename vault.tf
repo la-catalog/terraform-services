@@ -8,7 +8,7 @@ resource "docker_image" "vault" {
 }
 
 resource "docker_container" "vault" {
-  image = docker_image.vault.repo_digest
+  image = docker_image.vault.latest
   name  = "vault"
 
   ports {
