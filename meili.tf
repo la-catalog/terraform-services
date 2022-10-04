@@ -1,4 +1,4 @@
-variable "meili_pass" {
+variable "meili_key" {
   type      = string
   sensitive = true
 }
@@ -17,6 +17,6 @@ resource "docker_container" "meili" {
   }
 
   env = [
-    "MEILI_MASTER_KEY=${var.meili_pass}",
+    "MEILI_MASTER_KEY=${var.meili_key}",
   ]
 }
