@@ -6,7 +6,7 @@ terraform {
     }
 
     linux = {
-      source= "TelkomIndonesia/linux"
+      source  = "TelkomIndonesia/linux"
       version = "~> 0.7.0"
     }
   }
@@ -33,7 +33,7 @@ provider "docker" {
 }
 
 provider "linux" {
-  host = var.machine_ip
-  user = var.machine_user
+  host     = var.machine_ip
+  user     = var.machine_user
   password = var.machine_pass
 }
