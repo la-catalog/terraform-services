@@ -1,4 +1,4 @@
-name: Format terraform files
+name: Format Terraform files
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       
-      - name: Format terraform files
+      - name: Format Terraform files
         uses: dflook/terraform-fmt@v1
 
       - name: Push changes
