@@ -1,4 +1,4 @@
-name: Apply terraform changes
+name: Apply Terraform
 
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       
-      - name: Apply terraform
+      - name: Apply Terraform
         uses: dflook/terraform-apply@v1
         with:
           auto_approve: true
