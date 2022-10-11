@@ -9,15 +9,20 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.gh_token }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: dflook/terraform-apply@v1
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Apply terraform
+        uses: dflook/terraform-apply@v1
         with:
           auto_approve: true
           variables: |
             gh_token = "${{ secrets.gh_token }}"
-      - uses: EndBug/add-and-commit@v9
+            
+      - name: Push changes
+        uses: EndBug/add-and-commit@v9
         with:
-          message: Workflow fix
+          message: Save changes
           add: '--update'
           committer_name: actions
           committer_email: actions@github.com
