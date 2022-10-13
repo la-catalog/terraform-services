@@ -32,7 +32,6 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           message: Save changes
+          default_author: github_actions
           add: '--update'
-          committer_name: actions
-          committer_email: actions@github.com
           pull: '--ff'
