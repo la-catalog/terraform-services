@@ -23,6 +23,6 @@ provider "docker" {
 }
 
 provider "linux" {
-  host     = var.machine_ip
-  user     = var.machine_user
+  host = var.machine_ip
+  user = var.machine_user
 }
