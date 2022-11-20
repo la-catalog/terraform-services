@@ -27,6 +27,14 @@ jobs:
             influx_pass = "${{ secrets.influx_pass }}"
             rabbit_user = "${{ secrets.rabbit_user }}"
             rabbit_pass = "${{ secrets.rabbit_pass }}"
+
+      - name: Scan for secrets
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: ${{ github.ref_name }}
+          head: HEAD
+          extra_args: --debug --only-verified --fail
             
       - name: Push changes
         uses: EndBug/add-and-commit@v9
