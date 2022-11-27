@@ -4,5 +4,5 @@ on:
   workflow_dispatch:
 
 jobs:
-  format:
+  reusable:
     uses: la-catalog/github-actions/.github/workflows/terraform_apply.yml@main
