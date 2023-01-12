@@ -13,7 +13,7 @@ resource "docker_image" "rabbit" {
 }
 
 resource "docker_container" "rabbit" {
-  image = docker_image.rabbit.latest
+  image = docker_image.rabbit.image_id
   name  = "rabbit"
 
   ports {

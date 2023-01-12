@@ -13,7 +13,7 @@ resource "docker_image" "influx" {
 }
 
 resource "docker_container" "influx" {
-  image = docker_image.influx.latest
+  image = docker_image.influx.image_id
   name  = "influx"
 
   ports {
