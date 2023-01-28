@@ -6,3 +6,14 @@ on:
 jobs:
   reusable:
     uses: la-catalog/github-actions/.github/workflows/terraform_apply.yml@main
+    secrets:
+      gh_token: ${{ secrets.gh_token }}
+      machine_ip: ${{ secrets.machine_ip }}
+      vault_token: ${{ secrets.vault_token }}
+      mongo_user: ${{ secrets.mongo_user }}
+      mongo_pass: ${{ secrets.mongo_pass }}
+      meili_key: ${{ secrets.meili_key }}
+      influx_user: ${{ secrets.influx_user }}
+      influx_pass: ${{ secrets.influx_pass }}
+      rabbit_user: ${{ secrets.rabbit_user }}
+      rabbit_pass: ${{ secrets.rabbit_pass }}
